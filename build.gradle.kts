@@ -33,30 +33,27 @@ dependencies {
 }
 
 configure<BukkitPluginDescription> {
-    main = "@group@.Main"
+    main = "com.github.ringoame196_s_mcPlugin.Main"
     version = pluginVersion
     apiVersion = "1." + pluginVersion.split(".")[1]
-    author = "@author@"
-    website = "@website@"
-    /*
-    コマンド追加用
+    author = "ringoame196_s_mcPlugin"
+    website = "https://github.com/ringoame196-s-mcPlugin"
+
     commands {
-        register("test") {
-            description = "This is a test command!"
-            aliases = listOf("t")
-            permission = "testplugin.test"
-            usage = "Just run the command!"
+        register("originalenchant") {
+            description = "OriginalEnchant用コマンド"
+            permission = "op"
+            usage = "/originalenchant"
         }
     }
-    */
 }
 
 tasks.withType<ShadowJar> {
     configurations = listOf(shadowImplementation)
     archiveClassifier.set("")
-    relocate("kotlin", "@group@.libs.kotlin")
-    relocate("org.intellij.lang.annotations", "@group@.libs.org.intellij.lang.annotations")
-    relocate("org.jetbrains.annotations", "@group@.libs.org.jetbrains.annotations")
+    relocate("kotlin", "com.github.ringoame196_s_mcPlugin.libs.kotlin")
+    relocate("org.intellij.lang.annotations", "com.github.ringoame196_s_mcPlugin.libs.org.intellij.lang.annotations")
+    relocate("org.jetbrains.annotations", "com.github.ringoame196_s_mcPlugin.libs.org.jetbrains.annotations")
 }
 
 tasks.named("build") {
